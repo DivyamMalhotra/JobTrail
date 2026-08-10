@@ -1,6 +1,15 @@
 const { initializeApp, cert } = require('firebase-admin/app');
 const { getAuth } = require('firebase-admin/auth');
-const serviceAccount = require('./firebaseServiceKey.json');
+
+let serviceAccount;
+
+if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+  // Production (Render): read from environment variable
+  serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+} else {
+  // Local development: read from file
+  serviceAccount = require('./firebaseServiceKey.json');
+}
 
 const app = initializeApp({
   credential: cert(serviceAccount)
