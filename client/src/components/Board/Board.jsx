@@ -19,14 +19,15 @@ export default function Board({ jobs, onStatusChange, onDelete }) {
 
   return (
     <DndContext onDragEnd={handleDragEnd}>
-      <div className="flex gap-4 overflow-x-auto p-6">
+      <div className="flex gap-4 overflow-x-auto p-4 md:p-6 snap-x snap-mandatory scroll-px-4">
         {STATUSES.map((status) => (
-          <Column
-            key={status}
-            title={status}
-            jobs={jobs.filter((j) => j.status === status)}
-            onDelete={onDelete}
-          />
+          <div key={status} className="snap-start shrink-0">
+            <Column
+              title={status}
+              jobs={jobs.filter((j) => j.status === status)}
+              onDelete={onDelete}
+            />
+          </div>
         ))}
       </div>
     </DndContext>
