@@ -36,11 +36,11 @@ export default function AddJobModal({ isOpen, onClose, onAdd }) {
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
-      <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-5 sm:p-8 w-full max-w-xl shadow-lg relative max-h-[90vh] overflow-y-auto">
+      <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 w-full max-w-xl shadow-lg relative">
         <button type="button" onClick={onClose} className="absolute top-6 right-6 text-gray-400 hover:text-gray-600">✕</button>
         <h2 className="text-2xl font-semibold mb-6">Add New Job</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-2 gap-4 mb-4">
           <AutocompleteInput
             name="company" label="Company Name" placeholder="e.g. Stripe"
             value={form.company} onChange={handleChange} suggestions={COMPANY_SUGGESTIONS}
@@ -57,7 +57,7 @@ export default function AddJobModal({ isOpen, onClose, onAdd }) {
             className="w-full border rounded-lg p-3" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+        <div className="grid grid-cols-3 gap-4 mb-4">
           <div>
             <label className="text-sm font-medium block mb-1">Status</label>
             <select name="status" value={form.status} onChange={handleChange} className="w-full border rounded-lg p-3">

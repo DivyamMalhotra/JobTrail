@@ -94,13 +94,13 @@ export default function JobSearch() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <div className="max-w-5xl mx-auto p-4 md:p-6">
-        <h1 className="text-xl md:text-2xl font-semibold mb-1">Job Search</h1>
-        <p className="text-gray-500 mb-6 text-sm md:text-base">Find your next role and add it instantly to your JobTrail board.</p>
+      <div className="max-w-5xl mx-auto p-6">
+        <h1 className="text-2xl font-semibold mb-1">Job Search</h1>
+        <p className="text-gray-500 mb-6">Find your next role and add it instantly to your JobTrail board.</p>
 
         <form onSubmit={handleSearch} className="bg-white rounded-xl border p-4 mb-8">
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:items-end">
-            <div className="w-full sm:flex-1 sm:min-w-[180px]">
+          <div className="flex flex-wrap gap-3 items-end">
+            <div className="flex-1 min-w-[180px]">
               <AutocompleteInput
                 name="role"
                 label=""
@@ -113,13 +113,13 @@ export default function JobSearch() {
             <select
               value={country}
               onChange={handleCountryChange}
-              className="w-full sm:w-auto border rounded-lg p-3"
+              className="border rounded-lg p-3"
             >
               {COUNTRIES.map((c) => (
                 <option key={c.code} value={c.code}>{c.label}</option>
               ))}
             </select>
-            <div className="w-full sm:flex-1 sm:min-w-[180px]">
+            <div className="flex-1 min-w-[180px]">
               <AutocompleteInput
                 name="location"
                 label=""
@@ -129,7 +129,7 @@ export default function JobSearch() {
                 suggestions={LOCATION_SUGGESTIONS_BY_COUNTRY[country] || []}
               />
             </div>
-            <button className="w-full sm:w-auto bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700">
+            <button className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700">
               Search
             </button>
           </div>
@@ -154,7 +154,7 @@ export default function JobSearch() {
               <p className="text-sm text-gray-500 line-clamp-2 mb-4">
                 {job.description}
               </p>
-              <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+              <div className="flex justify-between items-center">
                 <button
                   onClick={() => handleSave(job)}
                   disabled={savedIds.includes(job.id)}
@@ -164,7 +164,7 @@ export default function JobSearch() {
                 </button>
                 <button
                   onClick={() => handleApply(job)}
-                  className="text-indigo-600 text-sm font-medium hover:underline text-left sm:text-right"
+                  className="text-indigo-600 text-sm font-medium hover:underline"
                 >
                   View Original →
                 </button>

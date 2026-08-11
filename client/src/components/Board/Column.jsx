@@ -7,7 +7,7 @@ export default function Column({ title, jobs, onDelete }) {
   return (
     <div
       ref={setNodeRef}
-      className={`rounded-xl p-3 w-[85vw] max-w-72 flex-shrink-0 min-h-[500px] ${isOver ? 'bg-indigo-50' : 'bg-gray-50'}`}
+      className={`rounded-xl p-3 w-72 flex-shrink-0 min-h-[500px] ${isOver ? 'bg-indigo-50' : 'bg-gray-50'}`}
     >
       <h3 className="text-sm font-medium text-gray-600 mb-3 px-1">
         {title} <span className="text-gray-400">({jobs.length})</span>
